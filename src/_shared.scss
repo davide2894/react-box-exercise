@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+
+// COLORS
+$hawkes-blue: #dce6fd;
+$black: #000000;
+// FONTS
+
+
+//* Function: rem()
+//* DESCRIPTION: px -> rem conversion
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
