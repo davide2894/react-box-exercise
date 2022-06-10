@@ -4,23 +4,36 @@ import {useState} from 'react';
 import Box from '../box/Box';
 
 function App() {
-  console.log(boxesArray);
   /**
-   * Challenge part 1:
-   * 1. Initialize state with the default value of the
-   *    array pulled in from boxes.js
-   * 2. Map over that state array and display each one
-   *    as an empty square (black border, transparent bg color)
-   *    (Don't worry about using the "on" property yet)
+   * Challenge: use setSquares to update the
+   * correct square in the array.
+   * 
+   * Make sure not to directly modify state!
+   * 
+   * Hint: look back at the lesson on updating arrays
+   * in state if you need a reminder on how to do this
    */
 
   const [boxes, setBoxes] = useState(boxesArray)
+  
+  function toggle(id){
+    setBoxes(prevBoxes => {
+      return prevBoxes.map(b => {
+        return b.id === id ? {...b, on: !b.on} : b;
+      })
+    });
+  }
 
   return (
     <main>
         <h1>Boxes will go here</h1>
         {boxes.map(box => 
-          <Box key={box.id} isOn={box.on} darkMode={false} />
+          <Box 
+            key={box.id}
+            id={box.id}
+            isOn={box.on}
+            handleToggle={() => toggle(box.id)} 
+          />
         )}
     </main>
   )
