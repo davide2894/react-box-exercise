@@ -25,16 +25,18 @@ function App() {
   }
 
   return (
-    <main>
-        <h1>Boxes will go here</h1>
-        {boxes.map(box => 
-          <Box 
-            key={box.id}
-            id={box.id}
-            isOn={box.on}
-            handleToggle={() => toggle(box.id)} 
-          />
-        )}
+    <main className="app">
+        <h1 className="app__heading">Click the boxes :)</h1>
+        <div className="app__boxContainer">
+          {boxes.map(box => 
+            <Box 
+              key={box.id}
+              id={box.id}
+              isOn={box.on}
+              handleToggle={() => toggle(box.id)} 
+            />
+          )}
+        </div>
     </main>
   )
 }

@@ -1,12 +1,28 @@
+@import '../../shared';
+
 .app {
-  &__main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__heading {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;  
-    margin: 20px auto;
-    max-width: 550px;
-    height: 100vh;
-    
+    font-size: rem(40px);
+  }
+
+  &__boxContainer {
+    margin-top: 40px;
+    display: grid;
+    grid-template-rows: repeat(3, rem(150px));
+    justify-content: center;
+    grid-template-columns: repeat(2, rem(150px));
+    grid-gap: $margin-20-px;
+
+    @media only screen and (min-width: 768px) {
+      grid-template-rows: repeat(2, rem(200px));
+      grid-template-columns: repeat(3, rem(200px));
+    }
   }
 }
