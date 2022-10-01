@@ -1,5 +1,4 @@
 import './Box.scss';
-import { useState } from 'react';
 
 export default function Box (props) {
     const isOnClass = props.isOn ? "box--on" : "box--off";
